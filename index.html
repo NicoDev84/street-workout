@@ -93,9 +93,9 @@
 
     <main class="pt-16">
         <!-- Section Accueil -->
-        <section id="accueil" class="section active relative min-h-screen" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1534368420009-621bfab424a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;">
+        <section id="accueil" class="section active min-h-screen flex flex-col" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1534368420009-621bfab424a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;">
             <!-- Hero Section -->
-            <div class="absolute inset-0 flex items-center justify-center">
+            <div class="flex-grow flex items-center justify-center py-20">
                 <div class="container mx-auto px-4">
                     <div class="text-center max-w-4xl mx-auto">
                         <h1 class="text-6xl md:text-7xl font-bold mb-6 text-white animate-fade-in">
@@ -118,7 +118,7 @@
             </div>
 
             <!-- Features Section -->
-            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent py-16">
+            <div class="w-full bg-gradient-to-t from-black to-transparent py-16">
                 <div class="container mx-auto px-4">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div class="bg-gray-900 bg-opacity-50 p-8 rounded-lg transform hover:scale-105 transition-all duration-300">
@@ -145,76 +145,284 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <a href="#programmes" class="nav-link text-white opacity-75 hover:opacity-100" data-section="programmes">
-                    <i class="fas fa-chevron-down text-2xl"></i>
-                </a>
-            </div>
         </section>
 
         <!-- Section Programmes -->
         <section id="programmes" class="section bg-gradient-to-br from-gray-900 to-gray-800">
             <div class="container mx-auto px-4 py-20">
                 <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center">Nos Programmes</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Programme 1 -->
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold text-white mb-4">Débutant</h3>
-                        <p class="text-gray-300 mb-4">Apprenez les bases du street workout et développez votre force</p>
-                        <ul class="text-gray-400 mb-6 space-y-2">
-                            <li>• Techniques de base</li>
-                            <li>• Programme progressif</li>
-                            <li>• Suivi personnalisé</li>
-                        </ul>
-                        <button class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-                            En savoir plus
-                        </button>
+                <p class="text-xl text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+                    Des programmes adaptés à tous les niveaux pour atteindre vos objectifs en street workout
+                </p>
+
+                <!-- Programmes Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Programme Débutant -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-xl relative">
+                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Débutant
+                        </div>
+                        <div class="p-8">
+                            <div class="text-blue-500 text-4xl mb-4">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Programme Fondation</h3>
+                            <div class="text-3xl font-bold text-white mb-6">29€<span class="text-gray-400 text-lg">/mois</span></div>
+                            <ul class="text-gray-300 space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Programme personnalisé
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Suivi des progrès
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Support par email
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Vidéos explicatives
+                                </li>
+                            </ul>
+                            <button onclick="showProgramDetails('debutant')" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                                Découvrir le programme
+                            </button>
+                        </div>
                     </div>
-                    <!-- Programme 2 -->
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold text-white mb-4">Intermédiaire</h3>
-                        <p class="text-gray-300 mb-4">Perfectionnez vos mouvements et augmentez votre force</p>
-                        <ul class="text-gray-400 mb-6 space-y-2">
-                            <li>• Mouvements avancés</li>
-                            <li>• Routines personnalisées</li>
-                            <li>• Coaching vidéo</li>
-                        </ul>
-                        <button class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-                            En savoir plus
-                        </button>
+
+                    <!-- Programme Intermédiaire -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-xl relative">
+                        <div class="absolute top-4 right-4 bg-yellow-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Intermédiaire
+                        </div>
+                        <div class="p-8">
+                            <div class="text-yellow-500 text-4xl mb-4">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Programme Performance</h3>
+                            <div class="text-3xl font-bold text-white mb-6">49€<span class="text-gray-400 text-lg">/mois</span></div>
+                            <ul class="text-gray-300 space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Programme personnalisé avancé
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Suivi hebdomadaire
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Support prioritaire
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Accès aux workshops en ligne
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Plan nutritionnel
+                                </li>
+                            </ul>
+                            <button onclick="showProgramDetails('intermediaire')" class="w-full bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-yellow-700 transition-colors">
+                                Découvrir le programme
+                            </button>
+                        </div>
                     </div>
-                    <!-- Programme 3 -->
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold text-white mb-4">Expert</h3>
-                        <p class="text-gray-300 mb-4">Maîtrisez les mouvements les plus complexes</p>
-                        <ul class="text-gray-400 mb-6 space-y-2">
-                            <li>• Figures acrobatiques</li>
-                            <li>• Entraînement intensif</li>
-                            <li>• Mentorat personnalisé</li>
-                        </ul>
-                        <button class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors">
-                            En savoir plus
+
+                    <!-- Programme Elite -->
+                    <div class="bg-gray-800 rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-xl relative">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Elite
+                        </div>
+                        <div class="p-8">
+                            <div class="text-red-500 text-4xl mb-4">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Programme Elite</h3>
+                            <div class="text-3xl font-bold text-white mb-6">89€<span class="text-gray-400 text-lg">/mois</span></div>
+                            <ul class="text-gray-300 space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Coaching personnalisé 1-1
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Suivi quotidien
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Support 24/7
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Accès illimité aux workshops
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Plan nutritionnel personnalisé
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2"></i>
+                                    Sessions privées mensuelles
+                                </li>
+                            </ul>
+                            <button onclick="showProgramDetails('elite')" class="w-full bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition-colors">
+                                Découvrir le programme
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programme Details Modal -->
+                <div id="program-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+                    <div class="bg-gray-800 rounded-xl max-w-4xl w-full mx-4 relative">
+                        <button id="program-modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
                         </button>
+                        <div id="program-modal-content" class="p-8"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Section Exercices -->
-        <section id="exercices" class="section bg-gradient-to-br from-gray-800 to-gray-900">
-            <div class="container mx-auto px-4 py-20">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center">Exercices</h2>
-                <p class="text-xl text-gray-300 mb-8 text-center">Section en construction...</p>
+        <section id="exercices" class="section bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-white text-center">Exercices Fondamentaux</h2>
+                
+                <!-- Filtres -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="exercise-filter bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors" data-level="all">Tous</button>
+                    <button class="exercise-filter bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors" data-level="Débutant">Débutant</button>
+                    <button class="exercise-filter bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors" data-level="Intermédiaire">Intermédiaire</button>
+                    <button class="exercise-filter bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors" data-level="Avancé">Avancé</button>
+                </div>
+
+                <!-- Grille d'exercices -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Exercice 1 -->
+                    <div class="exercise-card bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300" data-level="Débutant">
+                        <div class="h-48 bg-gray-700 relative">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Push-ups" class="w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Débutant</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Push-ups</h3>
+                            <p class="text-gray-400 mb-4">Maîtrisez les pompes pour développer votre force au poids du corps</p>
+                            <button onclick="openModal('pushups')" class="text-blue-500 hover:text-blue-400 font-semibold">Voir la technique →</button>
+                        </div>
+                    </div>
+
+                    <!-- Exercice 2 -->
+                    <div class="exercise-card bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300" data-level="Intermédiaire">
+                        <div class="h-48 bg-gray-700 relative">
+                            <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Pull-ups" class="w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-sm">Intermédiaire</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Pull-ups</h3>
+                            <p class="text-gray-400 mb-4">Développez votre dos et vos bras avec les tractions</p>
+                            <button onclick="openModal('pullups')" class="text-blue-500 hover:text-blue-400 font-semibold">Voir la technique →</button>
+                        </div>
+                    </div>
+
+                    <!-- Exercice 3 -->
+                    <div class="exercise-card bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300" data-level="Avancé">
+                        <div class="h-48 bg-gray-700 relative">
+                            <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=300&q=80" alt="Muscle Up" class="w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm">Avancé</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Muscle Up</h3>
+                            <p class="text-gray-400 mb-4">L'exercice roi du street workout pour une force explosive</p>
+                            <button onclick="openModal('muscleup')" class="text-blue-500 hover:text-blue-400 font-semibold">Voir la technique →</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Modal pour les détails des exercices -->
+        <div id="modal-overlay" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+            <div class="bg-gray-800 rounded-xl max-w-2xl w-full mx-4 relative">
+                <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+
         <!-- Section Contact -->
-        <section id="contact" class="section bg-gradient-to-br from-gray-900 to-gray-800">
-            <div class="container mx-auto px-4 py-20">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white text-center">Contact</h2>
-                <p class="text-xl text-gray-300 mb-8 text-center">Section en construction...</p>
+        <section id="contact" class="section bg-gradient-to-br from-gray-800 to-gray-900 min-h-screen py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-white text-center">Contactez-nous</h2>
+                    
+                    <!-- Contact Info Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="bg-gray-800 p-6 rounded-lg text-center">
+                            <div class="text-blue-500 text-3xl mb-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="text-white font-bold mb-2">Adresse</h3>
+                            <p class="text-gray-400">123 Rue du Sport<br>75000 Paris</p>
+                        </div>
+                        
+                        <div class="bg-gray-800 p-6 rounded-lg text-center">
+                            <div class="text-blue-500 text-3xl mb-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3 class="text-white font-bold mb-2">Téléphone</h3>
+                            <p class="text-gray-400">+33 1 23 45 67 89</p>
+                        </div>
+                        
+                        <div class="bg-gray-800 p-6 rounded-lg text-center">
+                            <div class="text-blue-500 text-3xl mb-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="text-white font-bold mb-2">Email</h3>
+                            <p class="text-gray-400">contact@brothermind.fr</p>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire de contact -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Nom</label>
+                                    <input type="text" class="w-full bg-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Email</label>
+                                    <input type="email" class="w-full bg-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Sujet</label>
+                                <select class="w-full bg-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option>Demande d'information</option>
+                                    <option>Programme personnalisé</option>
+                                    <option>Coaching privé</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2">Message</label>
+                                <textarea rows="5" class="w-full bg-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
