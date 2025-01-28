@@ -1,0 +1,11 @@
+{
+  "name": "site-street-workout",
+  "version": "1.0.0",
+  "description": "Site de coaching street workout",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
