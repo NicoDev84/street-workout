@@ -56,10 +56,59 @@
         .logo-text:hover::before {
             transform: scaleX(1);
         }
+        
+        /* Nouveau style pour la navigation */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover {
+            color: #3b82f6 !important;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .nav-link.active {
+            color: #3b82f6 !important;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .nav-link.active::after {
+            width: 80%;
+        }
+        
+        /* Style pour le menu mobile */
+        #mobile-menu .nav-link {
+            margin: 0.5rem 0;
+            display: block;
+            text-align: center;
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-900">
-    <header class="fixed w-full z-50 bg-gray-800 bg-opacity-90">
+    <header class="fixed w-full z-50 bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="logo-text text-2xl font-bold">
@@ -67,11 +116,11 @@
                     <span class="text-white">Mind</span>
                     <span class="text-sm font-light tracking-wider block text-gray-300">Street Workout</span>
                 </div>
-                <ul class="hidden md:flex space-x-6">
-                    <li><a href="#accueil" class="nav-link text-white hover:text-gray-300" data-section="accueil">Accueil</a></li>
-                    <li><a href="#programmes" class="nav-link text-white hover:text-gray-300" data-section="programmes">Programmes</a></li>
-                    <li><a href="#exercices" class="nav-link text-white hover:text-gray-300" data-section="exercices">Exercices</a></li>
-                    <li><a href="#contact" class="nav-link text-white hover:text-gray-300" data-section="contact">Contact</a></li>
+                <ul class="hidden md:flex space-x-2">
+                    <li><a href="#accueil" class="nav-link text-white" data-section="accueil">Accueil</a></li>
+                    <li><a href="#programmes" class="nav-link text-white" data-section="programmes">Programmes</a></li>
+                    <li><a href="#exercices" class="nav-link text-white" data-section="exercices">Exercices</a></li>
+                    <li><a href="#contact" class="nav-link text-white" data-section="contact">Contact</a></li>
                 </ul>
                 <div class="md:hidden cursor-pointer" id="burger">
                     <div class="burger-line bg-white h-1 w-6 mb-1"></div>
@@ -492,6 +541,73 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion du menu mobile
+            const burger = document.getElementById('burger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            burger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Gestion de la navigation et des sections
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Fonction pour mettre à jour la section active
+            function setActiveSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    }
+                });
+
+                // Mise à jour des liens de navigation
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Gestion des clics sur les liens de navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    setActiveSection(sectionId);
+                    
+                    // Fermer le menu mobile si ouvert
+                    mobileMenu.classList.add('hidden');
+                    
+                    // Scroll doux vers la section
+                    document.getElementById(sectionId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Détection de la section visible au scroll
+            let observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Définir la section active initiale basée sur le hash de l'URL
+            const initialSection = window.location.hash.slice(1) || 'accueil';
+            setActiveSection(initialSection);
+        });
+    </script>
     <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
